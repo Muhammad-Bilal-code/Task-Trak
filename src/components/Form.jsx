@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Tag from "./Tag";
 import { context } from "./context/Context";
 
@@ -26,7 +26,7 @@ const Form = () => {
   //   };
   //   console.log(status);
   const contextObj = useContext(context);
-  console.log(contextObj);
+  //   console.log(contextObj);
   const { taskArr, setTaskArr } = contextObj;
   const [taskObj, setTaskObj] = useState({
     title: "",
@@ -72,7 +72,7 @@ const Form = () => {
     // console.log(taskObj);
   };
   //   console.log(tagsArr);
-  console.log(taskObj);
+  //   console.log(taskObj);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -100,6 +100,7 @@ const Form = () => {
     }
     return checked;
   };
+
   return (
     <>
       <form className="flex flex-col gap-2" onSubmit={(e) => handleSubmit(e)}>
