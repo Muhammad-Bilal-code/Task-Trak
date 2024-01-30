@@ -3,10 +3,12 @@ import "./App.css";
 import Tag from "./components/Tag";
 import Form from "./components/Form";
 import TaskCol from "./components/TaskCol";
+import SignUp from "./components/SignUp";
 function App() {
   return (
     <>
       <div className="conteiner mx-auto flex flex-col gap-4">
+        <SignUp />
         <h2 className="text-3xl font-bold underline text-red-500">
           Welcome Task Trek
         </h2>

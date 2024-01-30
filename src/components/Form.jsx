@@ -108,7 +108,7 @@ const Form = () => {
     console.log("Data Base Add Function");
     const db = getDatabase(app);
 
-    set(ref(db, "users/"), {
+    set(ref(db, "users/Bilal"), {
       username: "Bilal",
     });
   };
@@ -162,6 +162,7 @@ const Form = () => {
             type="button"
             className="border-2 px-2 py-1 rounded"
             onClick={handleAddDataDatabase}
+            disabled
           >
             Check Database
           </button>
