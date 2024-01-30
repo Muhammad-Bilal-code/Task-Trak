@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import Tag from "./Tag";
 import { context } from "./context/Context";
+// import { getDatabase } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
+import { app } from "./firebase/firebase";
 
 const Form = () => {
   //   const [title, setTitle] = useState("");
@@ -101,6 +104,14 @@ const Form = () => {
     return checked;
   };
 
+  const handleAddDataDatabase = () => {
+    console.log("Data Base Add Function");
+    const db = getDatabase(app);
+
+    set(ref(db, "users/"), {
+      username: "Bilal",
+    });
+  };
   return (
     <>
       <form className="flex flex-col gap-2" onSubmit={(e) => handleSubmit(e)}>
@@ -146,6 +157,13 @@ const Form = () => {
           </select>
           <button type="submit" className="border-2 px-2 py-1 rounded">
             +Add
+          </button>
+          <button
+            type="button"
+            className="border-2 px-2 py-1 rounded"
+            onClick={handleAddDataDatabase}
+          >
+            Check Database
           </button>
         </div>
       </form>

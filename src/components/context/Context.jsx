@@ -2,19 +2,21 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const context = createContext(null);
 const Context = (props) => {
-  let localData = localStorage.getItem("data");
-  localData = JSON.parse(localData);
-  console.log(localData);
-  const [taskArr, setTaskArr] = useState(localData);
+  const [taskArr, setTaskArr] = useState([]);
+
   // useEffect(() => {
-  //   console.log("Local Data", typeof localData);
-  //   console.log("Local Data", typeof localData);
-  //   console.log("Local Data", localData);
+  //   let localData = localStorage.getItem("data");
+  //   localData = JSON.parse(localData);
   //   if (localData) {
+  //     console.log("Local Data Present");
+  //     console.log(localData);
   //     setTaskArr(localData);
+  //     console.log(taskArr);
   //   }
   // }, []);
   useEffect(() => {
+    console.log("Local Data Push");
+
     localStorage.setItem("data", JSON.stringify(taskArr));
   }, [taskArr]);
   return (

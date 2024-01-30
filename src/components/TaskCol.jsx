@@ -8,20 +8,58 @@ const TaskCol = (props) => {
   const contextObj = useContext(context);
   //   console.log(contextObj);
   const { taskArr, setTaskArr } = contextObj;
+  console.log(taskArr);
+  //   let filteredArr = taskArr.filter((elm) => elm.status == -colHeading);
   return (
     <div>
       <h2 className="text-4xl">{colHeading}</h2>
       <br />
-      {taskArr
-        .filter((elm) => elm.status === colHeading)
-        .map((elm) => (
-          <TaskSection
-            key={elm.id}
-            id={elm.id}
-            taskTitle={elm.title}
-            tags={elm.tags}
-          />
-        ))}
+      {taskArr.map(
+        (elm) =>
+          elm.status === colHeading && (
+            <TaskSection
+              key={elm.id}
+              id={elm.id}
+              taskTitle={elm.title}
+              tags={elm.tags}
+            />
+          )
+      )}
+      {/* {taskArr.filter((elm) => elm.status === colHeading).length > 0
+        ? taskArr
+            .filter((elm) => elm.status === colHeading)
+            .map((elm) => (
+              <TaskSection
+                key={elm.id}
+                id={elm.id}
+                taskTitle={elm.title}
+                tags={elm.tags}
+              />
+            ))
+        : "No Data"} */}
+
+      {/* {taskArr.length > 0
+        ? taskArr
+            .filter((elm) => elm.status === colHeading)
+            .map((elm) => (
+              <TaskSection
+                key={elm.id}
+                id={elm.id}
+                taskTitle={elm.title}
+                tags={elm.tags}
+              />
+            ))
+        : "No Data"} */}
+      {/* {filteredArr.length > 0
+        ? filteredArr.map((elm) => (
+            <TaskSection
+              key={elm.id}
+              id={elm.id}
+              taskTitle={elm.title}
+              tags={elm.tags}
+            />
+          ))
+        : "No Data"} */}
     </div>
   );
 };
