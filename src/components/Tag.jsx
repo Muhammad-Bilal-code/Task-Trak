@@ -5,7 +5,7 @@ const Tag = ({ tagTitle, handleTagSelect, selected }) => {
     <>
       <button
         type="button"
-        className={`border-2 px-2 py-1 rounded ${
+        className={`border-2 border-blue-400 px-2 py-1 rounded ${
           selected ? "bg-red-500" : "bg-slate-50"
         } ${selected ? "text-white" : "text-black"}`}
         onClick={() => handleTagSelect(tagTitle)}

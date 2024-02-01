@@ -119,7 +119,7 @@ const Form = () => {
           <input
             name="title"
             type="text"
-            className="border"
+            className="border border-black m-2 w-56 rounded"
             onChange={handleChangeInpt}
             value={taskObj.title}
           />
@@ -147,7 +147,7 @@ const Form = () => {
           />
           <select
             name="status"
-            className="border-2 px-2 py-1 rounded"
+            className="border-2 px-2 py-1 rounded border-blue-400"
             onChange={handleChangeInpt}
             value={taskObj.status}
           >
@@ -155,7 +155,10 @@ const Form = () => {
             <option>Doing</option>
             <option>Done</option>
           </select>
-          <button type="submit" className="border-2 px-2 py-1 rounded">
+          <button
+            type="submit"
+            className="border-2 px-2 py-1 rounded border-blue-400"
+          >
             +Add
           </button>
           <button

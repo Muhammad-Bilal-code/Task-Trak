@@ -9,16 +9,18 @@ function App() {
     <>
       <div className="conteiner mx-auto flex flex-col gap-4">
         <SignUp />
-        <h2 className="text-3xl font-bold underline text-red-500">
-          Welcome Task Trek
-        </h2>
-        <div className="head">
-          <Form />
-        </div>
-        <div className="body flex justify-around">
-          <TaskCol colHeading={"Todo"} />
-          <TaskCol colHeading={"Doing"} />
-          <TaskCol colHeading={"Done"} />
+        <div className="border-2 border-black p-4">
+          <h2 className="text-3xl font-bold underline text-red-500">
+            Welcome Task Trek
+          </h2>
+          <div className="head">
+            <Form />
+          </div>
+          <div className="body flex justify-around mt-4">
+            <TaskCol colHeading={"Todo"} />
+            <TaskCol colHeading={"Doing"} />
+            <TaskCol colHeading={"Done"} />
+          </div>
         </div>
       </div>
     </>
