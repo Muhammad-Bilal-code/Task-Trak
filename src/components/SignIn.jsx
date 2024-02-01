@@ -1,55 +1,57 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { app } from "./firebase/firebase";
 
 const auth = getAuth(app);
-const SignUp = () => {
+const SignIn = () => {
   //   const [email, setEmail] = useState("");
   //   console.log(email);
   //   const [password, setPassword] = useState("");
   //   console.log(password);
-  const handleSignUp = (e) => {
+  const [signInVal, setSignInVal] = useState({ email: "", password: "" });
+  const handleSignIn = (e) => {
     e.preventDefault();
-    console.log(signUpVal);
-    const { email, password } = signUpVal;
+    console.log(signInVal);
+    const { email, password } = signInVal;
     console.log(email);
     console.log(password);
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((data) => {
-        alert("SignUp Succes");
-        setSignUpVal({
+        alert("Sign In Success");
+        setSignInVal({
           email: "",
           password: "",
         });
       })
       .catch((error) => {
+        console.log(error);
         const errorCode = error.code;
         const errorMessage = error.message;
+
         // ..
       });
   };
-  const [signUpVal, setSignUpVal] = useState({ email: "", password: "" });
-  const handleChangeSignUp = (e) => {
+  const handleChangeSignIn = (e) => {
     console.log(e.target.name, e.target.value);
-    setSignUpVal((prev) => {
+    setSignInVal((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
-  console.log(signUpVal);
+  console.log(signInVal);
   return (
     <div className="border-2 border-black p-4">
       <h2 className="text-3xl font-bold underline text-red-500 mb-4">
-        Sign Up
+        Sign In
       </h2>
-      <form onSubmit={handleSignUp}>
+      <form onSubmit={handleSignIn}>
         <label htmlFor="">Email</label>
         <input
           type="email"
           placeholder="Enter Email"
           required
           // onChange={(e) => setEmail(e.target.value)}
-          onChange={(e) => handleChangeSignUp(e)}
-          value={signUpVal.email}
+          onChange={(e) => handleChangeSignIn(e)}
+          value={signInVal.email}
           className="border border-black ms-3 p-1 rounded"
           name="email"
         />
@@ -61,20 +63,20 @@ const SignUp = () => {
           placeholder="Enter Password"
           required
           //   onChange={(e) => setPassword(e.target.value)}
-          value={signUpVal.password}
+          value={signInVal.password}
           className="border border-black ms-3 p-1 rounded"
           name="password"
-          onChange={(e) => handleChangeSignUp(e)}
+          onChange={(e) => handleChangeSignIn(e)}
         />
         <button
           type="submit"
           className="ms-3 border-2 border-blue-400 p-1 rounded"
         >
-          Sign Up
+          Sign In
         </button>
       </form>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

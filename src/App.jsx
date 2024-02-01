@@ -4,11 +4,13 @@ import Tag from "./components/Tag";
 import Form from "./components/Form";
 import TaskCol from "./components/TaskCol";
 import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 function App() {
   return (
     <>
       <div className="conteiner mx-auto flex flex-col gap-4">
         <SignUp />
+        <SignIn />
         <div className="border-2 border-black p-4">
           <h2 className="text-3xl font-bold underline text-red-500">
             Welcome Task Trek

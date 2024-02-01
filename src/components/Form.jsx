@@ -119,9 +119,10 @@ const Form = () => {
           <input
             name="title"
             type="text"
-            className="border border-black m-2 w-56 rounded"
+            className="border border-black m-2 w-56 rounded p-1"
             onChange={handleChangeInpt}
             value={taskObj.title}
+            placeholder="Enter Task"
           />
         </div>
         <div className="button flex justify-center gap-1">
